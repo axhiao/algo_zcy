@@ -1,13 +1,5 @@
 package com.axhiao.aer.ch2;
 
-class Node {
-    public int data;
-    public Node next;
-    public Node(int n) {
-        this.data = n;
-    }
-}
-
 public class CommonPart {
 
     public static void outputCommonPart(Node link1, Node link2) {
