@@ -59,6 +59,27 @@ public class BinaryTreeRecursiveTraverse {
         }
     }
 
+    public static void posOrderNonRecurr(Node head) {
+        if (head == null)
+            return;
+
+        Stack<Node> stack = new Stack<>();
+        Node h = head; // point to item in the top of stack
+        stack.push(h);
+        Node c = null; // point to last visited item.
+        while(!stack.empty()) {
+            c = stack.peek();
+            if (c.left != null && h != c.left && h != c.right) {
+                stack.push(c.left);
+            } else if (c.right != null && h != c.right) {
+                stack.push(c.right);
+            } else {
+                System.out.print(stack.pop().value + " ");
+                h = c;
+            }
+        }
+    }
+
     public static Node buildTree() {
         /*
                      1
@@ -95,5 +116,7 @@ public class BinaryTreeRecursiveTraverse {
         inOrderNonRecurr(tree);
         System.out.println("\npost-Order Traverse:");
         posOrderRecurr(tree);
+        System.out.println();
+        posOrderNonRecurr(tree);
     }
 }
